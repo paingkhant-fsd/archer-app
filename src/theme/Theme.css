@@ -1,0 +1,138 @@
+:root[data-theme="dark"] {
+  --navy: #edf3fc;
+  --ink: #e5edf8;
+  --muted: #9dacc0;
+  --blue: #74a3ff;
+  --blue-dark: #9bbcff;
+  --blue-soft: #172944;
+  --surface: #111b2a;
+  --canvas: #09121f;
+  --line: #28384e;
+  --green: #54d6a0;
+  --shadow: 0 18px 48px rgba(0, 0, 0, .28);
+  color: var(--ink);
+  background: var(--canvas);
+}
+
+:root[data-theme="dark"] body,
+:root[data-theme="dark"] #root,
+:root[data-theme="dark"] .app-shell {
+  background: var(--canvas);
+}
+
+:root[data-theme="dark"] .topbar {
+  background: rgba(10, 19, 32, .94);
+}
+
+:root[data-theme="dark"] :where(.main-nav a, .login-link) {
+  color: #b2bfd0;
+}
+
+:root[data-theme="dark"] :where(.main-nav a:hover, .login-link:hover) {
+  color: var(--blue);
+}
+
+:root[data-theme="dark"] :where(.button-secondary, .search-panel, .project-card, .empty-state, .apply-panel) {
+  color: var(--ink);
+  background: var(--surface);
+  border-color: var(--line);
+}
+
+:root[data-theme="dark"] .button-white {
+  color: #173b75;
+}
+
+:root[data-theme="dark"] :where(.signal-card, .confidence-bar) {
+  color: var(--ink);
+  background: #121e2e;
+  border-color: var(--line);
+}
+
+:root[data-theme="dark"] .live-pill {
+  background: #123426;
+}
+
+:root[data-theme="dark"] :where(.signal-tags span, .tag-row span, .sort-label) {
+  color: #b8c6d8;
+  background: #1d2a3c;
+}
+
+:root[data-theme="dark"] :where(.search-box input, .select-wrap select) {
+  color: var(--ink);
+}
+
+:root[data-theme="dark"] .select-wrap select option {
+  color: var(--ink);
+  background: var(--surface);
+}
+
+:root[data-theme="dark"] .project-card:hover {
+  border-color: #527fc8;
+}
+
+:root[data-theme="dark"] .skeleton span {
+  background: linear-gradient(90deg, #1a2637, #26364b, #1a2637);
+  background-size: 200% 100%;
+}
+
+:root[data-theme="dark"] .process-section {
+  background: #07101c;
+}
+
+:root[data-theme="dark"] .client-cta {
+  background: #174ea8;
+}
+
+:root[data-theme="dark"] .panel-note {
+  background: #172944;
+}
+
+:root[data-theme="dark"] :where(.auth-form, .demo-login, .demo-login__entry) {
+  background: var(--canvas);
+}
+
+:root[data-theme="dark"] :where(.demo-login__form h2, .demo-field, .demo-account strong) {
+  color: var(--ink);
+}
+
+:root[data-theme="dark"] :where(.demo-login__help, .demo-account small) {
+  color: var(--muted);
+}
+
+:root[data-theme="dark"] .demo-account {
+  color: var(--ink);
+  background: var(--surface);
+  border-color: var(--line);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .14);
+}
+
+:root[data-theme="dark"] .demo-account:hover {
+  border-color: #7569c9;
+}
+
+:root[data-theme="dark"] .demo-account.is-selected {
+  background: linear-gradient(135deg, #211f3d, #191a35);
+  border-color: #8174e5;
+}
+
+:root[data-theme="dark"] :where(.demo-field > input, .demo-password input) {
+  color: var(--ink);
+  background: #101a29;
+  border-color: #34445a;
+}
+
+:root[data-theme="dark"] .form-error {
+  color: #ffb5b5;
+  background: #3a1d25;
+}
+
+:root[data-theme="dark"] .demo-login__note {
+  color: #8290a4;
+}
+
+@media (max-width: 900px) {
+  :root[data-theme="dark"] .main-nav {
+    background: var(--surface);
+    border-color: var(--line);
+  }
+}
