@@ -54,6 +54,7 @@ Password: ArcherDemo123!
 - `src/api.ts` - Typed API requests and response mapping.
 - `src/i18n/en.ts` and `src/i18n/my.ts` - English and Burmese interface translations.
 - `src/i18n/I18nProvider.tsx` - Language state, persistence, and translation lookup.
+- `src/i18n/BurmeseTypography.css` - Burmese-specific font, spacing, wrapping, and control sizing.
 - `src/App.css` - Archer visual styles.
 - `components.json` - shadcn/ui configuration using preset `beEhfqy2`.
 

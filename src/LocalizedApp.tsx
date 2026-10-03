@@ -9,6 +9,7 @@ import { useI18n } from "./i18n/I18nProvider";
 import type { TranslationKey } from "./i18n/en";
 import "./App.css";
 import "./Login.css";
+import "./i18n/BurmeseTypography.css";
 
 function LocalizedApp() { return <Routes><Route path="/login" element={<Login />} /><Route element={<Shell />}><Route path="/" element={<Home />} /><Route path="/projects/:projectId" element={<ProjectDetail />} /></Route></Routes>; }
 

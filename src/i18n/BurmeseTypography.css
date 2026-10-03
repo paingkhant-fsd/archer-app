@@ -1,0 +1,214 @@
+/*
+ * Burmese uses taller stacked glyphs than the Latin display face. Keep these
+ * overrides language-scoped so the English visual rhythm remains unchanged.
+ */
+:root:lang(my) {
+  --display: "Noto Sans Myanmar", "Myanmar Text", "Pyidaungsu", sans-serif;
+  font-family: "Noto Sans Myanmar", "Myanmar Text", "Pyidaungsu", sans-serif;
+  line-height: normal;
+}
+
+:root:lang(my) :where(button, input, select, textarea) {
+  font-family: inherit;
+}
+
+:root:lang(my) :where(h1, h2, h3) {
+  line-height: normal;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+}
+
+:root:lang(my) :where(
+  p,
+  li,
+  label,
+  button,
+  input,
+  select,
+  small,
+  .main-nav a,
+  .login-link,
+  .back-link
+) {
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+:root:lang(my) :where(
+  .eyebrow,
+  .signal-kicker,
+  .select-wrap > span,
+  .category-label,
+  .footer-meta,
+  .panel-label,
+  .demo-login__kicker,
+  .demo-account__role
+) {
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+:root:lang(my) .topbar {
+  gap: 20px;
+  height: auto;
+  min-height: 76px;
+  padding-inline: max(22px, calc((100vw - 1240px) / 2));
+  padding-block: 11px;
+}
+
+:root:lang(my) .wordmark {
+  flex: 0 0 auto;
+}
+
+:root:lang(my) .main-nav {
+  gap: 20px;
+}
+
+:root:lang(my) .main-nav a {
+  font-size: .78rem;
+  white-space: nowrap;
+}
+
+:root:lang(my) .top-actions {
+  flex: 0 0 auto;
+  gap: 12px;
+}
+
+:root:lang(my) :where(.button, .language-switcher button) {
+  height: auto;
+  padding-block: .65rem;
+}
+
+:root:lang(my) .language-switcher {
+  flex: 0 0 auto;
+}
+
+:root:lang(my) .language-switcher button[lang="my"] {
+  min-height: 36px;
+  padding-block: .4rem;
+}
+
+:root:lang(my) .hero-copy h1 {
+  font-size: clamp(2.75rem, 5vw, 4.55rem);
+}
+
+:root:lang(my) .hero-visual {
+  min-height: 540px;
+}
+
+:root:lang(my) .signal-main {
+  width: calc(100% - 72px);
+}
+
+:root:lang(my) :where(.live-pill, .status-label) {
+  align-items: flex-start;
+  line-height: 1.65;
+}
+
+:root:lang(my) :where(.signal-tags span, .tag-row span, .sort-label) {
+  line-height: 1.7;
+  padding-block: .5rem;
+}
+
+:root:lang(my) .confidence-bar span {
+  padding-block: .45rem;
+  line-height: 1.75;
+}
+
+:root:lang(my) .search-panel {
+  grid-template-columns: minmax(0, 1fr) 250px 220px;
+}
+
+:root:lang(my) :where(.search-box input, .select-wrap select) {
+  padding-block: .8rem;
+  line-height: 1.7;
+}
+
+:root:lang(my) .project-card {
+  min-height: 340px;
+}
+
+:root:lang(my) .project-card > p {
+  display: block;
+  min-height: 0;
+  overflow: visible;
+  line-height: 1.85;
+  -webkit-line-clamp: unset;
+}
+
+:root:lang(my) :where(.detail-facts span, .panel-note span) {
+  line-height: 1.75;
+}
+
+:root:lang(my) :where(.demo-login__pitch h1, .demo-login__form h2) {
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+:root:lang(my) .demo-account {
+  min-height: 104px;
+  padding-block: 17px;
+}
+
+:root:lang(my) :where(.demo-account strong, .demo-account small) {
+  line-height: 1.75;
+}
+
+:root:lang(my) :where(.demo-field > input, .demo-password input) {
+  height: auto;
+  min-height: 52px;
+  padding-block: .7rem;
+}
+
+:root:lang(my) .demo-password button {
+  top: 15px;
+}
+
+:root:lang(my) .demo-login__submit {
+  height: auto;
+  min-height: 52px;
+  padding-block: .7rem;
+}
+
+@media (max-width: 900px) {
+  :root:lang(my) .topbar {
+    min-height: 76px;
+    padding-inline: 22px;
+  }
+
+  :root:lang(my) .main-nav {
+    top: 75px;
+  }
+
+  :root:lang(my) .search-panel {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  :root:lang(my) .hero-copy h1 {
+    font-size: 2.1rem;
+  }
+
+  :root:lang(my) .hero-visual {
+    min-height: 475px;
+  }
+
+  :root:lang(my) .signal-main {
+    width: calc(100% - 40px);
+  }
+
+  :root:lang(my) .search-panel {
+    grid-template-columns: 1fr;
+  }
+
+  :root:lang(my) .demo-login__pitch h1 {
+    font-size: 2.15rem !important;
+  }
+}
+
+@media (prefers-reduced-data: reduce) {
+  :root:lang(my) {
+    font-family: "Myanmar Text", "Pyidaungsu", sans-serif;
+  }
+}

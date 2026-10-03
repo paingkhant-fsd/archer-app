@@ -11,6 +11,6 @@ export function LanguageSwitcher({ className = "" }: { className?: string }) {
 
   return <div className={`language-switcher ${className}`.trim()} aria-label={t("language.switchLabel")} role="group">
     <Languages size={15} aria-hidden="true" />
-    {options.map((option) => <button key={option.code} type="button" className={language === option.code ? "is-active" : ""} onClick={() => setLanguage(option.code)} aria-pressed={language === option.code}>{option.label}</button>)}
+    {options.map((option) => <button key={option.code} type="button" lang={option.code} className={language === option.code ? "is-active" : ""} onClick={() => setLanguage(option.code)} aria-pressed={language === option.code}>{option.label}</button>)}
   </div>;
 }
