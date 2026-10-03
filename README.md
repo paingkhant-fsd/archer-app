@@ -33,6 +33,7 @@ VITE_API_URL=http://localhost:4000/api/v1
 - Open project details.
 - Sign in with an Archer account.
 - Switch the interface between English and Burmese; the preference persists in the browser.
+- Switch between light and dark appearance; the first visit follows the system preference and later choices persist.
 
 Use the seeded API account for local login:
 
@@ -55,6 +56,8 @@ Password: ArcherDemo123!
 - `src/i18n/en.ts` and `src/i18n/my.ts` - English and Burmese interface translations.
 - `src/i18n/I18nProvider.tsx` - Language state, persistence, and translation lookup.
 - `src/i18n/BurmeseTypography.css` - Burmese-specific font, spacing, wrapping, and control sizing.
+- `src/theme/ThemeProvider.tsx` - Theme state, system default detection, and browser persistence.
+- `src/theme/Theme.css` - Shared dark-theme tokens and component overrides.
 - `src/App.css` - Archer visual styles.
 - `components.json` - shadcn/ui configuration using preset `beEhfqy2`.
 

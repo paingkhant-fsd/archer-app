@@ -116,6 +116,8 @@ export const my: Record<TranslationKey, string> = {
   "login.entering": "Archer သို့ ဝင်နေသည်…",
   "login.enter": "Archer သို့ ဝင်ရန်",
   "login.note": "ပြည်တွင်း စမ်းသပ်အကောင့်များသာ · ရွေးချယ်မှုတိုင်းတွင် တူညီသော စကားဝှက် အသုံးပြုသည်",
+  "theme.switchDark": "Dark mode သို့ ပြောင်းရန်",
+  "theme.switchLight": "Light mode သို့ ပြောင်းရန်",
   "account.client": "အလုပ်ရှင်",
   "account.freelancer": "လွတ်လပ်ပညာရှင်",
   "account.admin": "စီမံခန့်ခွဲသူ",

@@ -114,6 +114,8 @@ export const en = {
   "login.entering": "Entering Archer…",
   "login.enter": "Enter Archer",
   "login.note": "Local demo accounts only · Every selection uses the shared seeded password",
+  "theme.switchDark": "Switch to dark mode",
+  "theme.switchLight": "Switch to light mode",
   "account.client": "Client",
   "account.freelancer": "Freelancer",
   "account.admin": "Admin",

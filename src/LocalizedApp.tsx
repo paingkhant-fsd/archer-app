@@ -7,9 +7,11 @@ import { API_URL, formatPostedDate, getCategories, getProject, getProjects, type
 import { LanguageSwitcher } from "./i18n/LanguageSwitcher";
 import { useI18n } from "./i18n/I18nProvider";
 import type { TranslationKey } from "./i18n/en";
+import { ThemeToggle } from "./theme/ThemeToggle";
 import "./App.css";
 import "./Login.css";
 import "./i18n/BurmeseTypography.css";
+import "./theme/Theme.css";
 
 function LocalizedApp() { return <Routes><Route path="/login" element={<Login />} /><Route element={<Shell />}><Route path="/" element={<Home />} /><Route path="/projects/:projectId" element={<ProjectDetail />} /></Route></Routes>; }
 
@@ -18,7 +20,7 @@ function Brand() { const { t } = useI18n(); return <Link className="wordmark" to
 function Shell() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { t } = useI18n();
-  return <div className="app-shell"><header className="topbar"><Brand /><nav className={menuOpen ? "main-nav is-open" : "main-nav"} aria-label={t("nav.primary")}><a href="/#projects" onClick={() => setMenuOpen(false)}>{t("nav.findWork")}</a><a href="/#clients" onClick={() => setMenuOpen(false)}>{t("nav.forClients")}</a><a href="/#process" onClick={() => setMenuOpen(false)}>{t("nav.howItWorks")}</a></nav><div className="top-actions"><LanguageSwitcher /><Link className="login-link" to="/login">{t("nav.signIn")}</Link><Link className="button button-primary button-small" to="/login">{t("nav.getStarted")} <ArrowRight size={15} /></Link><button className="icon-button menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label={t("nav.toggle")} aria-expanded={menuOpen}>{menuOpen ? <X size={22} /> : <Menu size={22} />}</button></div></header><main><Outlet /></main><footer className="footer"><div><Brand /><p>{t("footer.tagline")}</p></div><div className="footer-meta"><span>{t("footer.copyright")}</span><span>{t("common.currencySupport")}</span></div></footer></div>;
+  return <div className="app-shell"><header className="topbar"><Brand /><nav className={menuOpen ? "main-nav is-open" : "main-nav"} aria-label={t("nav.primary")}><a href="/#projects" onClick={() => setMenuOpen(false)}>{t("nav.findWork")}</a><a href="/#clients" onClick={() => setMenuOpen(false)}>{t("nav.forClients")}</a><a href="/#process" onClick={() => setMenuOpen(false)}>{t("nav.howItWorks")}</a></nav><div className="top-actions"><ThemeToggle /><LanguageSwitcher /><Link className="login-link" to="/login">{t("nav.signIn")}</Link><Link className="button button-primary button-small" to="/login">{t("nav.getStarted")} <ArrowRight size={15} /></Link><button className="icon-button menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label={t("nav.toggle")} aria-expanded={menuOpen}>{menuOpen ? <X size={22} /> : <Menu size={22} />}</button></div></header><main><Outlet /></main><footer className="footer"><div><Brand /><p>{t("footer.tagline")}</p></div><div className="footer-meta"><span>{t("footer.copyright")}</span><span>{t("common.currencySupport")}</span></div></footer></div>;
 }
 
 function Home() {
@@ -87,7 +89,7 @@ function Login() {
   }
 
   return <main className="demo-login">
-    <section className="demo-login__story"><LanguageSwitcher className="language-switcher--login" /><Brand /><div className="demo-login__pitch"><p className="demo-login__kicker">{t("login.kicker")}</p><h1 style={{ fontSize: "clamp(3.05rem, 4.15vw, 4.2rem)" }}>{t("login.title")}</h1><p>{t("login.pitch")}</p><div className="demo-login__privacy"><span><LockKeyhole size={16} /></span> {t("login.privacy")}</div></div><p className="demo-login__copyright">{t("login.copyright")}</p></section>
+    <section className="demo-login__story"><div className="login-preferences"><ThemeToggle /><LanguageSwitcher /></div><Brand /><div className="demo-login__pitch"><p className="demo-login__kicker">{t("login.kicker")}</p><h1 style={{ fontSize: "clamp(3.05rem, 4.15vw, 4.2rem)" }}>{t("login.title")}</h1><p>{t("login.pitch")}</p><div className="demo-login__privacy"><span><LockKeyhole size={16} /></span> {t("login.privacy")}</div></div><p className="demo-login__copyright">{t("login.copyright")}</p></section>
     <section className="demo-login__entry"><form className="demo-login__form" onSubmit={handleSubmit}><p className="demo-login__label">{t("login.workspace")}</p><h2>{t("login.choose")}</h2><p className="demo-login__help">{t("login.help")}</p><div className="demo-accounts" role="radiogroup" aria-label={t("login.accounts")}>
       {demoAccounts.map((account) => { const selected = selectedEmail === account.email; return <button className={`demo-account${selected ? " is-selected" : ""}`} type="button" role="radio" aria-checked={selected} key={account.email} onClick={() => chooseAccount(account)}><span className="demo-account__role">{t(account.roleKey)}</span><strong>{t(account.nameKey)}</strong><small>{t(account.descriptionKey)}</small>{selected && <span className="demo-account__check"><Check size={13} strokeWidth={3} /></span>}</button>; })}
     </div><label className="demo-field">{t("login.email")}<input type="email" value={email} onChange={(e) => { setEmail(e.target.value); setSelectedEmail(""); }} autoComplete="email" required /></label><label className="demo-field">{t("login.password")}<span className="demo-password"><input type={showPassword ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="current-password" minLength={8} required /><button type="button" onClick={() => setShowPassword(!showPassword)} aria-label={showPassword ? t("login.hidePassword") : t("login.showPassword")}>{showPassword ? <EyeOff size={18} /> : <Eye size={18} />}</button></span></label>{errorKey && <p className="form-error" role="alert">{t(errorKey)}</p>}<button className="demo-login__submit" disabled={busy}>{busy ? t("login.entering") : t("login.enter")}{!busy && <ArrowRight size={16} />}</button><p className="demo-login__note"><Sparkles size={13} /> {t("login.note")}</p></form></section>

@@ -1,0 +1,53 @@
+.theme-toggle {
+  display: inline-grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 38px;
+  min-width: 38px;
+  height: 38px;
+  padding: 0;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  cursor: pointer;
+  transition: color .2s, background .2s, border-color .2s, transform .2s;
+}
+
+.theme-toggle:hover {
+  color: var(--blue);
+  transform: translateY(-1px);
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid #9ec5ff;
+  outline-offset: 2px;
+}
+
+.login-preferences {
+  position: absolute;
+  z-index: 2;
+  top: 31px;
+  right: 44px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.login-preferences .theme-toggle,
+.login-preferences .language-switcher {
+  color: #c7cbdb;
+  background: rgba(255, 255, 255, .07);
+  border-color: rgba(255, 255, 255, .12);
+}
+
+.login-preferences .language-switcher button.is-active {
+  color: #111426;
+}
+
+@media (max-width: 560px) {
+  .login-preferences {
+    top: 24px;
+    right: 20px;
+  }
+}
