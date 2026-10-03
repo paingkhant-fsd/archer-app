@@ -32,6 +32,7 @@ VITE_API_URL=http://localhost:4000/api/v1
 - Filter by category and currency.
 - Open project details.
 - Sign in with an Archer account.
+- Switch the interface between English and Burmese; the preference persists in the browser.
 
 Use the seeded API account for local login:
 
@@ -49,8 +50,10 @@ Password: ArcherDemo123!
 
 ## Project structure
 
-- `src/App.tsx` - Routes and page UI.
+- `src/LocalizedApp.tsx` - Localized routes and page UI (`src/App.tsx` is the pre-localization baseline retained for reference).
 - `src/api.ts` - Typed API requests and response mapping.
+- `src/i18n/en.ts` and `src/i18n/my.ts` - English and Burmese interface translations.
+- `src/i18n/I18nProvider.tsx` - Language state, persistence, and translation lookup.
 - `src/App.css` - Archer visual styles.
 - `components.json` - shadcn/ui configuration using preset `beEhfqy2`.
 

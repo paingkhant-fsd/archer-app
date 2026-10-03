@@ -10,6 +10,8 @@ export type Project = {
   description: string;
   budget: string;
   currency: Currency;
+  createdAt: string;
+  /** @deprecated Use createdAt with formatPostedDate so dates follow the active locale. */
   posted: string;
   proposals: number;
   tags: string[];
@@ -38,23 +40,24 @@ function toProject(project: ApiProject): Project {
     title: project.title,
     category: project.category.name,
     description: project.description,
-    budget: budget || "Budget not specified",
+    budget,
     currency: project.currency,
-    posted: formatPostedDate(project.createdAt),
+    createdAt: project.createdAt,
+    posted: formatPostedDate(project.createdAt, "en-US"),
     proposals: project.proposalsCount,
     tags: project.skills.map((skill) => skill.name),
   };
 }
 
-function formatPostedDate(value: string): string {
+export function formatPostedDate(value: string, locale: string): string {
   const ageInHours = Math.max(
     0,
     (Date.now() - new Date(value).getTime()) / 3_600_000,
   );
-  if (ageInHours < 1)
-    return `${Math.max(1, Math.round(ageInHours * 60))} min ago`;
-  if (ageInHours < 24) return `${Math.round(ageInHours)} hr ago`;
-  return `${Math.round(ageInHours / 24)} days ago`;
+  const formatter = new Intl.RelativeTimeFormat(locale, { numeric: "always" });
+  if (ageInHours < 1) return formatter.format(-Math.max(1, Math.round(ageInHours * 60)), "minute");
+  if (ageInHours < 24) return formatter.format(-Math.round(ageInHours), "hour");
+  return formatter.format(-Math.round(ageInHours / 24), "day");
 }
 
 export async function getProjects(filters: {

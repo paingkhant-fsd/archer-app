@@ -1,0 +1,69 @@
+.language-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px;
+  color: #607086;
+  background: #f1f4f8;
+  border: 1px solid #dce3ec;
+  border-radius: 9px;
+}
+
+.language-switcher > svg {
+  margin-inline: 5px 2px;
+}
+
+.language-switcher button {
+  min-height: 30px;
+  padding: 0 8px;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  font: inherit;
+  font-size: .7rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.language-switcher button:focus-visible {
+  outline: 2px solid #155eef;
+  outline-offset: 2px;
+}
+
+.language-switcher button.is-active {
+  color: #16263d;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(20, 39, 70, .12);
+}
+
+.language-switcher--login {
+  position: absolute;
+  z-index: 2;
+  top: 31px;
+  right: 44px;
+  color: #c7cbdb;
+  background: rgba(255, 255, 255, .07);
+  border-color: rgba(255, 255, 255, .12);
+}
+
+.language-switcher--login button.is-active {
+  color: #111426;
+}
+
+@media (max-width: 900px) {
+  .top-actions {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 560px) {
+  .language-switcher > svg {
+    display: none;
+  }
+
+  .language-switcher--login {
+    top: 24px;
+    right: 20px;
+  }
+}
