@@ -18,8 +18,12 @@ const dictionaries = { en, my };
 const I18nContext = createContext<I18nValue | null>(null);
 
 function initialLanguage(): Language {
-  const saved = localStorage.getItem(STORAGE_KEY);
-  if (saved === "en" || saved === "my") return saved;
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved === "en" || saved === "my") return saved;
+  } catch {
+    // Storage can be unavailable in privacy-restricted browser contexts.
+  }
   return navigator.language.toLowerCase().startsWith("my") ? "my" : "en";
 }
 
@@ -27,9 +31,13 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>(initialLanguage);
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, language);
     document.documentElement.lang = language;
     document.documentElement.dir = "ltr";
+    try {
+      localStorage.setItem(STORAGE_KEY, language);
+    } catch {
+      // The live language switch still works when persistence is unavailable.
+    }
   }, [language]);
 
   const value = useMemo<I18nValue>(() => ({
