@@ -14,7 +14,7 @@
 
 :root:lang(my) :where(h1, h2, h3) {
   line-height: normal;
-  letter-spacing: 0;
+  letter-spacing: normal;
   overflow-wrap: anywhere;
 }
 
@@ -45,7 +45,7 @@
   .demo-account__role
 ) {
   text-transform: none;
-  letter-spacing: 0;
+  letter-spacing: normal;
 }
 
 :root:lang(my) .topbar {
@@ -141,7 +141,7 @@
 }
 
 :root:lang(my) :where(.demo-login__pitch h1, .demo-login__form h2) {
-  letter-spacing: 0;
+  letter-spacing: normal;
   line-height: normal;
 }
 
