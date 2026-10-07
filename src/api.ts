@@ -3,6 +3,12 @@ export const API_URL =
 
 export type Currency = "USD" | "MMK";
 
+export type AuthResponse = {
+  user: { id: string; email: string; name: string; role: string };
+  accessToken: string;
+  refreshToken: string;
+};
+
 export type Project = {
   id: string;
   title: string;
@@ -90,4 +96,22 @@ export async function getCategories(): Promise<{ id: string; name: string }[]> {
     categories: { id: string; name: string }[];
   };
   return data.categories;
+}
+
+export async function registerAccount(input: {
+  name: string;
+  email: string;
+  password: string;
+}): Promise<AuthResponse> {
+  const response = await fetch(`${API_URL}/auth/register`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(input),
+  });
+  const data = await response.json().catch(() => null) as (AuthResponse & {
+    error?: { code?: string };
+  }) | null;
+  if (!response.ok) throw new Error(data?.error?.code ?? "REGISTER_FAILED");
+  if (!data) throw new Error("REGISTER_FAILED");
+  return data;
 }

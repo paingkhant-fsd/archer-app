@@ -42,7 +42,8 @@
   .footer-meta,
   .panel-label,
   .demo-login__kicker,
-  .demo-account__role
+  .demo-account__role,
+  .register-kicker
 ) {
   text-transform: none;
   letter-spacing: normal;
@@ -145,6 +146,26 @@
   line-height: normal;
 }
 
+:root:lang(my) :where(.register-story h1, .register-form h2) {
+  letter-spacing: normal;
+  line-height: normal;
+}
+
+:root:lang(my) :where(.register-field > input, .register-password input) {
+  min-height: 54px;
+  line-height: 1.7;
+  padding-block: .7rem;
+}
+
+:root:lang(my) :where(.register-benefits li, .register-form__help, .register-field small, .register-signin) {
+  line-height: 1.85;
+}
+
+:root:lang(my) .register-submit {
+  min-height: 54px;
+  padding-block: .7rem;
+}
+
 :root:lang(my) .demo-account {
   min-height: 104px;
   padding-block: 17px;
@@ -204,6 +225,10 @@
 
   :root:lang(my) .demo-login__pitch h1 {
     font-size: 2.15rem !important;
+  }
+
+  :root:lang(my) .register-story h1 {
+    font-size: 2.1rem;
   }
 }
 

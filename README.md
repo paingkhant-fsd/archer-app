@@ -6,7 +6,7 @@ The web client for Archer. It provides public project discovery, project details
 
 - Node.js 24+
 - npm 11+
-- `archer-api` running locally for live project data and login
+- `archer-api` running locally for live project data, registration, and login
 
 ## Setup
 
@@ -19,7 +19,11 @@ npm run dev
 
 Open the Vite URL shown in the terminal, normally `http://localhost:5173`.
 
-The API defaults to `http://localhost:4000/api/v1`. To use another API URL, create `.env.local`:
+The API defaults to `http://localhost:4000/api/v1`. To use another API URL, copy the environment example and edit the local file:
+
+```powershell
+Copy-Item .env.example .env.local
+```
 
 ```text
 VITE_API_URL=http://localhost:4000/api/v1
@@ -31,6 +35,7 @@ VITE_API_URL=http://localhost:4000/api/v1
 - Search projects by title, description, and skills.
 - Filter by category and currency.
 - Open project details.
+- Create an Archer account from the landing page.
 - Sign in with an Archer account.
 - Switch the interface between English and Burmese; the preference persists in the browser.
 - Switch between light and dark appearance; the first visit follows the system preference and later choices persist.
@@ -52,6 +57,7 @@ Password: ArcherDemo123!
 ## Project structure
 
 - `src/LocalizedApp.tsx` - Localized routes and page UI (`src/App.tsx` is the pre-localization baseline retained for reference).
+- `src/Register.tsx` and `src/Register.css` - Registration flow and responsive page styles.
 - `src/api.ts` - Typed API requests and response mapping.
 - `src/i18n/en.ts` and `src/i18n/my.ts` - English and Burmese interface translations.
 - `src/i18n/I18nProvider.tsx` - Language state, persistence, and translation lookup.
@@ -71,3 +77,7 @@ npm run dev
 ```
 
 If port `5173` is busy, Vite selects another port and prints the correct URL.
+
+## License
+
+Archer App is available under the [MIT License](./LICENSE).
